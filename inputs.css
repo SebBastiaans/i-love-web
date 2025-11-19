@@ -1,0 +1,15 @@
+body{
+
+    input[type=time]::open;{
+        background-color: red;
+    }
+
+    input:checked{
+        
+    }
+
+
+    ::placeholder{
+        color: darkblue;
+    }
+}

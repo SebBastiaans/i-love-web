@@ -1,0 +1,20 @@
+#color:open{
+    background-color: aqua;
+}
+
+input:invalid{
+    color: red;
+}
+
+input:valid{
+    color: green;
+}
+
+#number:in-range{
+    background-color: brown;
+    color: white;
+}
+
+#file:invalid{
+    color: red;
+}

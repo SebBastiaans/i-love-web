@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Formulieren learning journal</h1>
+
+    <form></form>
+        <fieldset>
+            <legend>• Waarom heeft elke input een label nodig? - om het goed bruikbaar te maken voor de gebruiker.</legend>
+            <label>
+                met label
+                <input type="text">
+            </label>
+            <input type="text">
+        </fieldset>
+
+        <fieldset>
+            <legend>• Wat doe je met de attributen type, autocomplete, inputmode en enterkeyhint? - autocomplete hint dat een veld automatisch gevuld kan worden met bekende data. inputmode zorgt ervoor dat het juiste toetsenbord wordt laten zien voor telefoon en tablet. Enterkeyhint is voor digitale toestenborden, waarmee je een toets kunt veranderen.</legend>
+            <label>
+                <input type="email" autocomplete="on" inputmode="email" enterkeyhint="enter">
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>• Wat doen fieldsets en legends in een formulier? - Met fieldset kun je meerdere inputs groeperen, met legends kun je de fieldset een titel geven.</legend>
+            <label>
+                nu staan alle text inputs in het zelfde vakje (fieldset), met de beschrijving (legend)
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>• Wat doen required, maxlength, min, max, step? - required zegt dat de input gevuld moet zijn. maxlength zegt hoelang het woord in de input mag zijn. Min en max zijn uit hoeveel de input bestaat. Step zegt per hoeveel je een stapje vooruit gaat.</legend>
+            <label>
+                <input type="password" maxlength="10" minlength="6" required placeholder="wachtwoord, 6-10 letters">
+            </label>
+            <label>
+                deze range is van 0 t/m 4 in stapjes van 1
+                <input type="range" min="0" max="4" step="1">
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>• Welke input pseudo-classes ken je nog niet? Maak met allemaal een demo'tje - :open, :in-range - :out-range.</legend>
+            <label>
+                dit label wordt aqua kleur als je het opent.
+                <input type="color" name="" id="color">
+            </label>
+            <label for="">
+                <input type="text" name="" id="text">
+            </label>
+            <label for="">
+                achtergrond van deze number is bruin als het in-range is.
+                <input type="number" id="number" min="0" max="4">
+            </label>
+            <label for="">
+                <input type="file" accept="image/png image/jpg" >
+            </label>           
+        </fieldset>
+    
+    </form>
+
+</body>
+</html>

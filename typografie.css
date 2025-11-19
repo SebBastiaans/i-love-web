@@ -1,0 +1,17 @@
+@font-face {
+    font-family: pixel;
+    src: url(eigenpixelfont-Regular.otf) format("opentype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+body{
+    font-family: "pixel", sans-serif;
+    font-size: 1em;
+}
+
+p{
+    
+    font-weight: 400;
+    text-align: center;
+}

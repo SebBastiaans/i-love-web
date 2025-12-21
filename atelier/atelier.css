@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+    line-height: 1.4em;
+    font-family: sans-serif;
+}
+
+@keyframes miniMe{
+    0%{
+        rotate: 0turn;
+        scale: 1;
+    }
+
+    100%{
+        rotate: 4turn;
+        scale: 0;
+        filter: blur(2em);
+    }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+header{
+    img{
+        height: 100vh;
+        display: flex;
+        position: absolute;
+        justify-self: center;
+        cursor: pointer;
+    }
+
+    .animation-miniMe{
+        animation-name: miniMe;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+}
+
+nav{ 
+    opacity: 0;
+    visibility: hidden;
+}
+
+.visible-nav{
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+    border: solid black 2px;
+    justify-content: space-between;
+
+    animation-name: fade-in;
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+
+    button{
+        background: none;
+        border: none;
+
+        a{
+            text-decoration: none;
+            font-size: large;
+            color: black;
+            padding: 1em;
+        }
+    }
+}
+
+main{
+    background-color: #fafafa;
+    background-image: 
+        linear-gradient(#ddd 1px, transparent 1px),
+        linear-gradient(90deg, #ddd 1px, transparent 1px);
+    background-size: 20px 20px;
+    height: 100vh;
+
+}

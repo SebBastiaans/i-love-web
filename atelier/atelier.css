@@ -1,5 +1,6 @@
-body{
+*{
     margin: 0;
+    padding: 0;
     line-height: 1.4em;
     font-family: sans-serif;
 }
@@ -26,58 +27,80 @@ body{
   }
 }
 
-header{
-    img{
-        height: 100vh;
-        display: flex;
-        position: absolute;
-        justify-self: center;
-        cursor: pointer;
-    }
-
-    .animation-miniMe{
-        animation-name: miniMe;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
-    }
+@keyframes blinking{
+    0%{border-color: transparent;}
+    50%{border-color: black;}
+    100%{border-color: transparent;}
+}
+@keyframes typing{
+    0%{width: 0;}
+    100%{width: 326.87px;}
 }
 
-nav{ 
-    opacity: 0;
-    visibility: hidden;
-}
-
-.visible-nav{
-    opacity: 1;
-    visibility: visible;
-    display: flex;
-    border: solid black 2px;
-    justify-content: space-between;
-
-    animation-name: fade-in;
-    animation-duration: 3s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
-
-    button{
-        background: none;
-        border: none;
-
-        a{
-            text-decoration: none;
-            font-size: large;
-            color: bl;
-            padding: 1em;
-        }
-    }
-}
-
-main{
+body{
     background-color: #fafafa;
     background-image: 
         linear-gradient(#ddd 1px, transparent 1px),
         linear-gradient(90deg, #ddd 1px, transparent 1px);
     background-size: 20px 20px;
-    height: 100vh;
+    height: 100%;
+}
 
+    h1{
+        position: absolute;
+        font-size: 2rem;
+        font-weight: lighter;
+        top: 50%;
+        left: 60%;
+
+        border-right: 2px solid black;
+        animation: 
+            blinking 1s steps(1, end) infinite,
+            typing 2s steps(50, end);
+        overflow: hidden;
+        white-space: nowrap;
+
+        @media(max-width:1440px){
+            display: none;
+        }
+    }
+
+    img{
+        height: 100vh;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+
+nav{
+    display: flex;
+    border-block: solid black 2px;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.414);
+
+    a{
+        text-decoration: none;
+        color: black;
+        padding: .5rem;
+
+        &:hover{
+            background-color: rgb(238, 238, 238);
+        }
+    }
+}
+
+main{
+    padding-inline: 3%;
+
+    section{
+        background-color: red;
+        height: 100vh;
+    }
+
+    #atelier{
+        display: grid;
+    }
 }

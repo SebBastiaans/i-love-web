@@ -85,10 +85,12 @@ nav{
         text-decoration: none;
         color: black;
         padding: .5rem;
+        scroll-behavior: smooth;
 
         &:hover{
-            background-color: rgb(238, 238, 238);
+            text-decoration: underline dotted;
         }
+        
     }
 }
 
@@ -96,11 +98,63 @@ main{
     padding-inline: 3%;
 
     section{
-        background-color: red;
+        border: orangered solid 2px;
         height: 100vh;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
     }
 
     #atelier{
         display: grid;
+        margin-bottom: 1rem;
+    }
+
+    h2{
+        text-align: center;
+    }
+
+    #journal{
+
+        details{
+            padding-inline: 2%;
+            cursor: pointer;
+            border-bottom: 2px dashed black;
+            border-width: 90%;
+
+            &:hover{
+                border-bottom: 2px solid black;
+            }
+            summary{
+                position: relative;
+                anchor-name: --summary;
+
+                &::marker{
+                    content: '';
+                }
+
+                &::before, &::after{
+                    content: '';
+                    border-block-start: 3px solid orangered;
+                    height: 0;
+                    width: 1rem;
+
+                    inset-block-start: 50%;
+                    inset-inline-end: 0;
+
+                    position: absolute;
+                    position-anchor: --summary;
+                    position-area: top end;
+                }
+
+                &::after{
+                    transform: rotate(90deg);
+                    transform-origin: 50%;
+                    transition: .2s ease-out;
+                }
+            }            
+        }
+        details[open] summary::after{
+            transform: rotate(0deg);
+        }
     }
 }

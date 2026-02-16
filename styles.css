@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+
+    height: 100vh;
+    width: 200vh;
+}
+
+@keyframes --rotate-list{
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(360deg);
+    }
+}
+
+ul{
+    padding: 0;
+    border: 1px rgb(255, 0, 0) solid;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 50vw;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+
+    animation-name: --rotate-list;
+    animation-timeline: scroll(inline);
+    transform-origin: center;
+
+    li{
+        list-style: none;
+        border: 1px black solid;
+        border-radius: 20px;
+        width: fit-content;
+        padding: 1rem;
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+}

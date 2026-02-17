@@ -16,6 +16,15 @@ body{
     }
 }
 
+@keyframes --rotate-items{
+    from{
+        transform: rotateZ(0deg);
+    }
+    to{
+        transform: rotateZ(-360deg);
+    }
+}
+
 ul{
     padding: 0;
     border: 1px rgb(255, 0, 0) solid;
@@ -25,6 +34,8 @@ ul{
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
+
+    display: flex;
 
     animation-name: --rotate-list;
     animation-timeline: scroll(inline);

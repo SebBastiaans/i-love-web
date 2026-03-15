@@ -67,8 +67,9 @@ body{
 
     img{
         height: 100vh;
-        right: 50%;
-        transform: translateX(50%);
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
 
@@ -104,16 +105,17 @@ main{
         scroll-behavior: smooth;
     }
 
-    #atelier{
+    .atelier{
         display: grid;
         margin-bottom: 1rem;
+        animation-timeline: scroll(inline);
+
+        h2{
+            text-align: center;
+        }
     }
 
-    h2{
-        text-align: center;
-    }
-
-    #journal{
+    .journal{
 
         details{
             padding-inline: 2%;

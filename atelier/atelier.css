@@ -101,21 +101,43 @@ main{
     section{
         border: orangered solid 2px;
         height: 100vh;
-        overflow-y: scroll;
-        scroll-behavior: smooth;
+        height: 100dvh;
+        height: clamp(100dvh, 100%, 500dvh);
     }
 
     .atelier{
-        display: grid;
+        display: flex;
+        flex-direction: column;
         margin-bottom: 1rem;
-        animation-timeline: scroll(inline);
+        width: 100%;
 
         h2{
             text-align: center;
         }
+
+        div{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+            grid-template-rows: repeat(auto);
+            
+
+            a{
+                &:hover{
+                    opacity: 80%;
+                    transition: .3s ease;
+                }
+
+                img{
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+            }
+        }
     }
 
     .journal{
+        width: 100%;
 
         details{
             padding-inline: 2%;
@@ -153,7 +175,23 @@ main{
                     transform-origin: 50%;
                     transition: .2s ease-out;
                 }
-            }            
+            }  
+            
+            ul{
+                padding-inline: 2%;
+                li:first-of-type{
+                    list-style: none;
+                    text-align: end;
+                }
+
+                a{
+                    color: black;
+                    
+                    &:hover{
+                        color: blue;
+                    }
+                }
+            }
         }
         details[open] summary::after{
             transform: rotate(0deg);

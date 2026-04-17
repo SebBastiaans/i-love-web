@@ -6,19 +6,61 @@
     <title>Document</title>
 </head>
 <style>
-    
+
+    body{
+        --body: red;
+        --bckg: white;
+        --color: black;
+
+        background-color: var(--body);
+    }
     article{
         background-color: var(--bckg);
         color: var(--color);
         width: 20em;
         height: 30em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media screen and (prefers-color-scheme: dark){
+        body{
+            --body: blue;
+            --bckg: black;
+            --color: white;
+        }
+    }
+
+    @media (prefers-reduced-motion: no-preference){
+        .face{
+            backface-visibility: hidden;
+        }
+        .back{
+            transform: rotateY('180deg');
+            opacity: 1;
+        }
+        article{
+            &:focus, &:focus-within, &:hover{
+                transform: rotateY('180deg');
+            }            
+        }
+
     }
 </style>
 <body>
     <article>
-        <h1>artikel</h1>
-        <button>push</button>
-        <p>wagwan bossman</p>
+        <div class="face">
+            <h1>artikel</h1>
+            <button>push</button>
+            <p>wagwan bossman</p>
+        </div>
+    </article>
+    <article>
+        <div class="back">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam cum nisi quod voluptate, quas nobis deserunt, ad ab fuga expedita eum doloremque voluptatem porro dignissimos repellendus quis distinctio, id sint!</p>
+        </div>
     </article>
 </body>
 </html>

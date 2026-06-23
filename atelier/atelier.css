@@ -37,9 +37,14 @@
     100%{width: 326.87px;}
 }
 
+html{
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+}
+
 body{
     background-color: #fafafa;
-    background-image: 
+    background-image:
         linear-gradient(#ddd 1px, transparent 1px),
         linear-gradient(90deg, #ddd 1px, transparent 1px);
     background-size: 20px 20px;
@@ -81,6 +86,14 @@ nav{
     bottom: 0;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.414);
+    z-index: 10;
+
+    transform: translateY(0);
+    transition: transform .3s ease;
+
+    &.nav-hidden{
+        transform: translateY(100%);
+    }
 
     a{
         text-decoration: none;
@@ -103,6 +116,7 @@ main{
         height: 100vh;
         height: 100dvh;
         height: clamp(100dvh, 100%, 500dvh);
+        scroll-snap-align: start;
     }
 
     .atelier{
@@ -110,27 +124,57 @@ main{
         flex-direction: column;
         margin-bottom: 1rem;
         width: 100%;
+        height: 100dvh;
 
         h2{
             text-align: center;
         }
 
-        div{
+        ul{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(max(15rem, 100%/4), 1fr));
             grid-template-rows: repeat(auto);
             
+            li{
+                list-style: none;
+                position: relative;
+                overflow: hidden;
 
-            a{
-                &:hover{
-                    opacity: 80%;
-                    transition: .3s ease;
-                }
+                a{
+                    position: relative;
+                    display: block;
 
-                img{
-                    width: 100%;
-                    height: auto;
-                    object-fit: cover;
+                    img{
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                        object-fit: cover;
+                        transition: filter .3s ease;
+                    }
+
+                    .desc{
+                        position: absolute;
+                        inset: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 1rem;
+                        text-align: center;
+                        color: white;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        opacity: 0;
+                        transition: opacity .3s ease;
+                    }
+
+                    &:hover{
+                        img{
+                            filter: blur(4px);
+                        }
+
+                        .desc{
+                            opacity: 1;
+                        }
+                    }
                 }
             }
         }
@@ -138,6 +182,7 @@ main{
 
     .journal{
         width: 100%;
+        height: 100dvh;
 
         details{
             padding-inline: 2%;
